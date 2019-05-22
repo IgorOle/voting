@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.igorole.voting.model.User;
 import ru.igorole.voting.repository.UserRepository;
-import ru.igorole.voting.util.ValidationUtil;
 import ru.igorole.voting.web.AbstractController;
 
 import static ru.igorole.voting.util.ValidationUtil.checkNotFoundWithId;

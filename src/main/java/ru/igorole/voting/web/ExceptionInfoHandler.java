@@ -22,7 +22,6 @@ import ru.igorole.voting.util.exception.IllegalRequestDataException;
 import ru.igorole.voting.util.exception.NotFoundException;
 
 import javax.servlet.http.HttpServletRequest;
-
 import java.lang.invoke.MethodHandles;
 
 import static ru.igorole.voting.util.exception.ErrorType.*;

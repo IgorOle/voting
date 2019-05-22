@@ -12,7 +12,6 @@
        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
 
-
     <!-- Context: properties -->
     <context:property-placeholder location="classpath:db.properties"/>
 
@@ -21,14 +20,14 @@
         <jdbc:script encoding="utf-8" location="classpath:db/populate.sql"/>
     </jdbc:initialize-database>
 
-        <bean class="org.springframework.xd.batch.hsqldb.server.HSQLServerBean">
-            <property name="serverProperties">
-                <props>
-                    <prop key="server.database.0">mem:${database.name}</prop>
-                    <prop key="server.dbname.0">${database.name}</prop>
-                </props>
-            </property>
-        </bean>
+    <bean class="org.springframework.xd.batch.hsqldb.server.HSQLServerBean">
+        <property name="serverProperties">
+            <props>
+                <prop key="server.database.0">mem:${database.name}</prop>
+                <prop key="server.dbname.0">${database.name}</prop>
+            </props>
+        </property>
+    </bean>
 
     <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
         <constructor-arg>

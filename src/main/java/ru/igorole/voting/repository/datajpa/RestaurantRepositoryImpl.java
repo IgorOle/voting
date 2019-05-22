@@ -6,7 +6,6 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 import ru.igorole.voting.model.Restaurant;
 import ru.igorole.voting.repository.RestaurantRepository;
-import ru.igorole.voting.to.RestaurantTo;
 
 import java.util.List;
 

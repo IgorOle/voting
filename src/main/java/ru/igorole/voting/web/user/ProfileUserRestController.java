@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.AbstractController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import ru.igorole.voting.model.User;
 import ru.igorole.voting.repository.UserRepository;
@@ -28,7 +26,7 @@ public class ProfileUserRestController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping( produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public User get() {
         int id = SecurityUtil.authUserId();
         User user = userRepository.get(id);
