@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="xdb@localhost">
+  <database-model serializer="dbm" rdbms="HSQLDB" format-version="4.8">
+    <root id="1">
+      <ServerVersion>2.4.1</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="PUBLIC">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="INFORMATION_SCHEMA"/>
+    <schema id="4" parent="2" name="PUBLIC">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="5" parent="2" name="SYSTEM_LOBS"/>
+    <table id="6" parent="4" name="DISHES"/>
+    <table id="7" parent="4" name="MENU"/>
+    <table id="8" parent="4" name="RESTAURANTS"/>
+    <table id="9" parent="4" name="USERS"/>
+    <table id="10" parent="4" name="USER_ROLES"/>
+    <table id="11" parent="4" name="VOTES"/>
+    <column id="12" parent="6" name="ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="13" parent="6" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(300)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="14" parent="6" name="DESCRIBE">
+      <Position>3</Position>
+      <DataType>VARCHAR(300)|12s</DataType>
+    </column>
+    <index id="15" parent="6" name="SYS_IDX_DISHES_NAME_IDX_17153">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>NAME</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="16" parent="6" name="SYS_PK_17147">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="17" parent="7" name="ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="7" name="DATE_IS">
+      <Position>2</Position>
+      <DataType>DATE|91s</DataType>
+    </column>
+    <column id="19" parent="7" name="DISH_ID">
+      <Position>3</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="7" name="RESTAURANT_ID">
+      <Position>4</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="21" parent="7" name="SYS_IDX_RESTAURANT_DATE_DISH_RESTAURANT_IDX_17166">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>DATE_IS
+DISH_ID
+RESTAURANT_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="22" parent="7" name="SYS_PK_17155">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="23" parent="7" name="MENU_DISHES_ID_FK">
+      <ColNames>DISH_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>DISHES</RefTableName>
+      <RefKeyName>SYS_PK_17147</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="24" parent="7" name="MENU_RESTAURANTS_ID_FK">
+      <ColNames>RESTAURANT_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>RESTAURANTS</RefTableName>
+      <RefKeyName>SYS_PK_17140</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="25" parent="8" name="ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="8" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(300)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="27" parent="8" name="SYS_IDX_RESTAURANT_NAME_IDX_17146">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>NAME</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="28" parent="8" name="SYS_PK_17140">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="29" parent="9" name="ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="9" name="EMAIL">
+      <Position>2</Position>
+      <DataType>VARCHAR(200)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="9" name="NAME">
+      <Position>3</Position>
+      <DataType>VARCHAR(200)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="9" name="ENABLED">
+      <Position>4</Position>
+      <DataType>BOOLEAN|16s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>TRUE</DefaultExpression>
+    </column>
+    <column id="33" parent="9" name="PASSWORD">
+      <Position>5</Position>
+      <DataType>VARCHAR(200)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="34" parent="9" name="SYS_IDX_USERS_EMAIL_IDX_17132">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>EMAIL</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="35" parent="9" name="USERS_EMAIL_UINDEX">
+      <ColNames>EMAIL</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="36" parent="9" name="SYS_PK_17120">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="37" parent="10" name="USER_ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="10" name="ROLE">
+      <Position>2</Position>
+      <DataType>VARCHAR(30)|12s</DataType>
+    </column>
+    <index id="39" parent="10" name="SYS_IDX_USER_ROLES_IDX_17137">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USER_ID
+ROLE</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <foreign-key id="40" parent="10" name="SYS_FK_17134">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>USER_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>USERS</RefTableName>
+      <RefKeyName>SYS_PK_17120</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="41" parent="11" name="ID">
+      <Position>1</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="11" name="USER_ID">
+      <Position>2</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="11" name="RESTAURANT_ID">
+      <Position>3</Position>
+      <DataType>INTEGER|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="11" name="DATE_IS">
+      <Position>4</Position>
+      <DataType>TIMESTAMP|93s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="45" parent="11" name="SYS_PK_17168">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="46" parent="11" name="VOTES_USERS_ID_FK">
+      <ColNames>USER_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>USERS</RefTableName>
+      <RefKeyName>SYS_PK_17120</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="47" parent="11" name="VOTES_RESTAURANTS_ID_FK">
+      <ColNames>RESTAURANT_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>RESTAURANTS</RefTableName>
+      <RefKeyName>SYS_PK_17140</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+  </database-model>
+</dataSource>
