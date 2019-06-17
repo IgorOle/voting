@@ -9,8 +9,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import ru.igorole.voting.model.Vote;
 import ru.igorole.voting.repository.datajpa.CrudVoteRepository;
 import ru.igorole.voting.service.Properties;
-import ru.igorole.voting.to.VoteTo;
-import ru.igorole.voting.util.VoteUtil;
 import ru.igorole.voting.web.SecurityUtil;
 
 import java.net.URI;
@@ -33,15 +31,12 @@ public class ProfileVoteRestController {
     @Autowired
     Properties properties;
 
-
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<VoteTo> getAll(@RequestParam(value = "date", required = false) LocalDate date) {
+    public List<Vote> getAll(@RequestParam(value = "date", required = false) LocalDate date) {
         if (date == null) {
-            return VoteUtil.fromVoteToTo(
-                    repository.findAllByUser(SecurityUtil.safeGet().getUser()));
+            return repository.findAllByUser(SecurityUtil.safeGet().getUser());
         } else {
-            return VoteUtil.fromVoteToTo(
-                    repository.findAllByUserAndDateTimeBetween(SecurityUtil.safeGet().getUser(), date.atStartOfDay(), date.atTime(LocalTime.MAX)));
+            return repository.findAllByUserAndDateTimeBetween(SecurityUtil.safeGet().getUser(), date.atStartOfDay(), date.atTime(LocalTime.MAX));
         }
     }
 

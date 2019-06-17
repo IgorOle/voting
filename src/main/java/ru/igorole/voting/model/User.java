@@ -11,7 +11,6 @@ import java.util.Set;
 
 
 //@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-
 @Entity
 @Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "email", name = "users_unique_email_idx")})
 public class User extends AbstractNamedEntity {
@@ -44,8 +43,8 @@ public class User extends AbstractNamedEntity {
     public User() {
     }
 
-    public User(String name, String password, String email, Set<Role> roles) {
-        this.name = name;
+    public User(Integer id, String name, String password, String email, Set<Role> roles) {
+        super(id, name);
         this.password = password;
         this.email = email;
         setRoles(roles);

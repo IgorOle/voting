@@ -20,13 +20,13 @@ public class Vote extends AbstractBaseEntity {
     @ManyToOne(fetch = FetchType.EAGER) //LAZY
     @JoinColumn(name = "restaurant_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-//    @NotNull(groups = View.Persist.class)
+    @NotNull
     private Restaurant restaurant;
 
     @ManyToOne(fetch = FetchType.EAGER) //LAZY
     @JoinColumn(name = "user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-//    @NotNull(groups = View.Persist.class)
+    @NotNull
     private User user;
 
     public LocalDateTime getDateTime() {

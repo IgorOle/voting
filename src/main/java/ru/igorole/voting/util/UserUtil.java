@@ -11,7 +11,7 @@ import java.util.Collections;
 public class UserUtil {
 
     public static User createNewFromTo(UserTo userTo) {
-        return new User(userTo.getName(), userTo.getPassword(), userTo.getEmail(), Collections.singleton(Role.ROLE_USER));
+        return new User(null, userTo.getName(), userTo.getPassword(), userTo.getEmail(), Collections.singleton(Role.ROLE_USER));
     }
 
     public static User updateFromTo(User user, UserTo userTo) {

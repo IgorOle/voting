@@ -30,7 +30,6 @@ import static ru.igorole.voting.util.exception.ErrorType.*;
 @Order(Ordered.HIGHEST_PRECEDENCE + 5)
 public class ExceptionInfoHandler {
     private static Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-//    private static Logger log = LoggerFactory.getLogger(ExceptionInfoHandler.class);
 
     @ResponseStatus(value = HttpStatus.UNPROCESSABLE_ENTITY)
     @ExceptionHandler({BindException.class, MethodArgumentNotValidException.class})

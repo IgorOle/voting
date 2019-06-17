@@ -85,6 +85,5 @@ public class ValidationUtil {
         if (LocalTime.now().isAfter(time)) {
             throw new IllegalRequestDataException("Time error. Too late.");
         }
-
     }
 }

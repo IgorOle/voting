@@ -26,6 +26,8 @@ public interface CrudMenuRepository extends JpaRepository<Menu, Integer> {
     @Override
     Optional<Menu> findById(Integer id);
 
-    List<Menu> findAllByRestaurantAndAndDate(Restaurant restaurant, LocalDate date);
+    List<Menu> findAllByRestaurantAndDate(Restaurant restaurant, LocalDate date);
+
+    List<Menu> findAllByDate(LocalDate date);
 }
 

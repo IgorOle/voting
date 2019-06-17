@@ -7,11 +7,9 @@ import javax.validation.constraints.NotNull;
 import java.sql.Date;
 import java.util.List;
 
-public class RestaurantTo extends BaseTo {
+public class RestaurantTo {
 
     List<Dish> dishes;
-
-    Integer id;
 
     @NotNull
     Date date;
@@ -19,33 +17,34 @@ public class RestaurantTo extends BaseTo {
     @NotBlank
     String name;
 
+    List<VoteTo> votes;
+
+    MenuTo menuTo;
+
     public RestaurantTo() {
     }
 
-    public RestaurantTo(Integer id, String name, List<Dish> dishes) {
-        this.setId(id);
-        this.dishes = dishes;
+    public RestaurantTo(Integer id, String name, MenuTo menuTo, List<VoteTo> votes) {
         this.name = name;
+        this.votes = votes;
+        this.menuTo = menuTo;
     }
 
-    @Override
-    public Integer getId() {
-        return id;
+    public List<VoteTo> getVotes() {
+        return votes;
     }
 
-    @Override
-    public void setId(Integer id) {
-        this.id = id;
+    public void setVotes(List<VoteTo> votes) {
+        this.votes = votes;
     }
 
-    public List<Dish> getDishes() {
-        return dishes;
+    public MenuTo getMenuTo() {
+        return menuTo;
     }
 
-    public void setDishes(List<Dish> dishes) {
-        this.dishes = dishes;
+    public void setMenuTo(MenuTo menuTo) {
+        this.menuTo = menuTo;
     }
-
 
     public Date getDate() {
         return date;

@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
+import ru.igorole.voting.model.Restaurant;
 import ru.igorole.voting.model.User;
 import ru.igorole.voting.model.Vote;
 
@@ -35,5 +36,7 @@ public interface CrudVoteRepository extends JpaRepository<Vote, Integer> {
     List<Vote> findAllByUserAndDateTimeBetween(User user, LocalDateTime start, LocalDateTime end);
 
     List<Vote> findAllByDateTimeBetween(LocalDateTime start, LocalDateTime end);
+
+    List<Vote> findAllByRestaurantAndDateTimeBetween(Restaurant restaurant, LocalDateTime start, LocalDateTime end);
 
 }

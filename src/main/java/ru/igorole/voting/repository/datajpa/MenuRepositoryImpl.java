@@ -5,8 +5,10 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 import ru.igorole.voting.model.Menu;
+import ru.igorole.voting.model.Restaurant;
 import ru.igorole.voting.repository.MenuRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Cacheable(value = "menu")
@@ -36,5 +38,13 @@ public class MenuRepositoryImpl implements MenuRepository {
     @Override
     public List<Menu> getAll() {
         return repository.findAll(SORT_DATE_RESTAURANT);
+    }
+
+    public List<Menu> getAllByRestaurantAndDate(Restaurant restaurant, LocalDate date) {
+        return repository.findAllByRestaurantAndDate(restaurant, date);
+    }
+
+    public List<Menu> getAllByDate(LocalDate date) {
+        return repository.findAllByDate(date);
     }
 }

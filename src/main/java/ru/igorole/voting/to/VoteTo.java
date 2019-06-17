@@ -1,6 +1,6 @@
 package ru.igorole.voting.to;
 
-import ru.igorole.voting.model.Restaurant;
+import ru.igorole.voting.model.User;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
@@ -10,18 +10,20 @@ public class VoteTo extends BaseTo {
     @NotNull
     LocalDateTime dateTime;
 
-    @NotNull
-    Restaurant restaurant;
+    User user;
 
-    public VoteTo(@NotNull LocalDateTime dateTime, Restaurant restaurant) {
+
+    public VoteTo(LocalDateTime dateTime, User user) {
         this.dateTime = dateTime;
-        this.restaurant = restaurant;
+        this.user = user;
     }
 
-    public VoteTo(Integer id, LocalDateTime dateTime, Restaurant restaurant) {
-        this.id = id;
-        this.dateTime = dateTime;
-        this.restaurant = restaurant;
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public LocalDateTime getDateTime() {
@@ -32,11 +34,4 @@ public class VoteTo extends BaseTo {
         this.dateTime = dateTime;
     }
 
-    public Restaurant getRestaurant() {
-        return restaurant;
-    }
-
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-    }
 }
